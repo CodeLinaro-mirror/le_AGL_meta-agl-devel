@@ -9,8 +9,8 @@
 			"filesystem":	"ext4",
 			"mode":		"rw",
 			"blockdev": [
-				"/dev/mmcblk1p11",
-				"/dev/mmcblk1p11"
+				"/dev/mmcblk1p12",
+				"/dev/mmcblk1p12"
 			]
 		},
 		"lifecycle": {

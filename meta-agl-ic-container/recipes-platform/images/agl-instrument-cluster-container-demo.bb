@@ -4,9 +4,11 @@ LICENSE = "MIT"
 require lxc-host-image-minimal.bb
 require recipes-platform/images/agl-lxc-multi-partition-image.inc
 
-CONTAINER_IMAGES ?= "agl-container-cluster:guest-image-cluster-demo \
-                     agl-container-ivi:guest-image-ivi-demo \
-                    "
+CONTAINER_IMAGES ?= " \
+    agl-container-cluster:guest-image-cluster-demo-qt \
+    agl-container-cluster:guest-image-cluster-demo-slint \
+    agl-container-ivi:guest-image-ivi-demo \
+    "
 
 IMAGE_FEATURES =+ "allow-empty-password empty-root-password allow-root-login post-install-logging"
 
@@ -19,7 +21,7 @@ IMAGE_INSTALL += " \
 # packages required for network bridge settings via lxc-net
 IMAGE_INSTALL += " \
     container-manager \
-    cm-config-cluster-demo \
+    cm-config-cluster-demo-slint cm-config-cluster-demo-qt \
     cm-config-agl-momi-ivi-demo \
     systemd-networkd systemd-conf-canbus systemd-conf-ether systemd-conf-usb \
     lxc-networking \

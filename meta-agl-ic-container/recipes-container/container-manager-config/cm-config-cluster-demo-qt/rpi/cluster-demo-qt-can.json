@@ -1,16 +1,16 @@
 {
-	"name": "cluster-demo",
+	"name": "cluster-demo-qt",
 	"role": "cluster",
 	"base": {
 		"autoboot": true,
-		"bootpriority": 1,
+		"bootpriority": 98,
 		"rootfs": {
-			"path": "/opt/container/guests/cluster-demo/rootfs",
+			"path": "/opt/container/guests/cluster-demo-qt/rootfs",
 			"filesystem":	"ext4",
 			"mode":		"rw",
 			"blockdev": [
-				"/dev/mmcblk0p3",
-				"/dev/mmcblk0p3"
+				"/dev/mmcblk0p4",
+				"/dev/mmcblk0p4"
 			]
 		},
 		"lifecycle": {
@@ -65,7 +65,7 @@
 			},
 			{
 				"type": 	"directory",
-				"from": 	"/opt/container/guests/cluster-demo/system.conf",
+				"from": 	"/opt/container/guests/cluster-demo-qt/system.conf",
 				"to":		"etc/systemd/system.conf.d/10-environment.conf",
 				"fstype":	"none",
 				"option": 	"bind,optional,create=file"
@@ -95,6 +95,13 @@
 					"flags":	"up",
 					"hwaddr":	"00:16:3e:xx:xx:xx",
 					"mode": "bridge"
+				}
+			},
+			{
+				"type": 	"vxcan",
+				"param": {
+					"name":	"can0",
+					"upstream": 	"can0"
 				}
 			}
 		]

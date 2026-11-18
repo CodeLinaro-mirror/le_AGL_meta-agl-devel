@@ -1,16 +1,16 @@
 {
-	"name": "cluster-demo",
+	"name": "cluster-demo-qt",
 	"role": "cluster",
 	"base": {
 		"autoboot": true,
-		"bootpriority": 1,
+		"bootpriority": 98,
 		"rootfs": {
-			"path": "/opt/container/guests/cluster-demo/rootfs",
+			"path": "/opt/container/guests/cluster-demo-qt/rootfs",
 			"filesystem":	"ext4",
 			"mode":		"rw",
 			"blockdev": [
-				"/dev/mmcblk0p3",
-				"/dev/mmcblk0p3"
+				"/dev/mmcblk1p10",
+				"/dev/mmcblk1p10"
 			]
 		},
 		"lifecycle": {
@@ -26,6 +26,18 @@
 			"HOME=/home/root"
 		]
 	},
+	"resource": [
+		{
+			"type":		"cgroupv2",
+			"object":	"cpuset.cpus",
+			"value":	"0"
+		},
+		{
+			"type":		"prlimit",
+			"object":	"rtprio",
+			"value":	"50"
+		}
+	],
 	"fs": {
 		"mount": [
 			{
@@ -51,13 +63,6 @@
 			},
 			{
 				"type": 	"directory",
-				"from": 	"/run/pipewire/icipc-0",
-				"to":		"var/icipc-0",
-				"fstype":	"none",
-				"option": 	"bind,optional,create=file"
-			},
-			{
-				"type": 	"directory",
 				"from": 	"/run/dlt",
 				"to":		"run/dlt",
 				"fstype":	"none",
@@ -65,7 +70,7 @@
 			},
 			{
 				"type": 	"directory",
-				"from": 	"/opt/container/guests/cluster-demo/system.conf",
+				"from": 	"/opt/container/guests/cluster-demo-qt/system.conf",
 				"to":		"etc/systemd/system.conf.d/10-environment.conf",
 				"fstype":	"none",
 				"option": 	"bind,optional,create=file"
@@ -101,7 +106,8 @@
 				"type": 	"vxcan",
 				"param": {
 					"name":	"can0",
-					"upstream": 	"can0"
+					"upstream": 	"can0",
+					"gw_rule":	"/opt/container/guests/cluster-demo-qt/conf/cluster-can-gateway.json"
 				}
 			}
 		]

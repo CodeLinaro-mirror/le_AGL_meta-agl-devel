@@ -1,16 +1,16 @@
 {
-	"name": "cluster-demo",
+	"name": "cluster-demo-slint",
 	"role": "cluster",
 	"base": {
 		"autoboot": true,
-		"bootpriority": 1,
+		"bootpriority": 99,
 		"rootfs": {
-			"path": "/opt/container/guests/cluster-demo/rootfs",
+			"path": "/opt/container/guests/cluster-demo-slint/rootfs",
 			"filesystem":	"ext4",
 			"mode":		"rw",
 			"blockdev": [
-				"/dev/mmcblk1p10",
-				"/dev/mmcblk1p10"
+				"/dev/mmcblk1p11",
+				"/dev/mmcblk1p11"
 			]
 		},
 		"lifecycle": {
@@ -70,7 +70,7 @@
 			},
 			{
 				"type": 	"directory",
-				"from": 	"/opt/container/guests/cluster-demo/system.conf",
+				"from": 	"/opt/container/guests/cluster-demo-slint/system.conf",
 				"to":		"etc/systemd/system.conf.d/10-environment.conf",
 				"fstype":	"none",
 				"option": 	"bind,optional,create=file"
@@ -106,7 +106,8 @@
 				"type": 	"vxcan",
 				"param": {
 					"name":	"can0",
-					"upstream": 	"can0"
+					"upstream": 	"can0",
+					"gw_rule":	"/opt/container/guests/cluster-demo-slint/conf/cluster-can-gateway.json"
 				}
 			}
 		]
