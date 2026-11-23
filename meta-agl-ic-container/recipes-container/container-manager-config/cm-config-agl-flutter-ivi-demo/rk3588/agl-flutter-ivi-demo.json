@@ -9,8 +9,8 @@
 			"filesystem":	"ext4",
 			"mode":		"rw",
 			"blockdev": [
-				"/dev/mmcblk1p14",
-				"/dev/mmcblk1p14"
+				"/dev/disk/by-label/flutter-ivi",
+				"/dev/disk/by-label/flutter-ivi"
 			]
 		},
 		"extended": {

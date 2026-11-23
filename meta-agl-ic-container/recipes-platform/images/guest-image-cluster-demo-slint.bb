@@ -12,7 +12,7 @@ IMAGE_INSTALL += " \
 "
 
 IMAGE_OVERHEAD_FACTOR = "0"
-EXTRA_IMAGECMD:append = " -L agl-cluster"
+EXTRA_IMAGECMD:append = " -L cluster-slint"
 IMAGE_ROOTFS_EXTRA_SPACE = "0"
 IMAGE_ROOTFS_SIZE = "1048576"
 

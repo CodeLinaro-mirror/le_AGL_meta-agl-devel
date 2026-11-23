@@ -9,8 +9,8 @@
 			"filesystem":	"ext4",
 			"mode":		"rw",
 			"blockdev": [
-				"/dev/mmcblk0p3",
-				"/dev/mmcblk0p3"
+				"/dev/disk/by-label/cluster-qt",
+				"/dev/disk/by-label/cluster-qt"
 			]
 		},
 		"lifecycle": {

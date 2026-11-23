@@ -25,7 +25,7 @@ IMAGE_INSTALL += " \
 "
 
 IMAGE_OVERHEAD_FACTOR = "0"
-EXTRA_IMAGECMD:append = " -L agl-momi-ivi"
+EXTRA_IMAGECMD:append = " -L momi-ivi"
 IMAGE_ROOTFS_EXTRA_SPACE = "0"
 IMAGE_ROOTFS_SIZE = "2097152"
 

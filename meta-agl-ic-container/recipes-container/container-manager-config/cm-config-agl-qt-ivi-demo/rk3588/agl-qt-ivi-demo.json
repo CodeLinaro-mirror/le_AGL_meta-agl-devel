@@ -9,8 +9,8 @@
 			"filesystem":	"ext4",
 			"mode":		"rw",
 			"blockdev": [
-				"/dev/mmcblk1p13",
-				"/dev/mmcblk1p13"
+				"/dev/disk/by-label/qt-ivi",
+				"/dev/disk/by-label/qt-ivi"
 			]
 		},
 		"extended": {
